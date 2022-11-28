@@ -3,7 +3,7 @@ class ZermeloManager {
   final String accessToken;
 
   ZermeloManager({
-    this.school,
-    this.accessToken,
+    required this.school,
+    required this.accessToken,
   });
 }

@@ -17,23 +17,24 @@ class User {
   final bool isMentor;
   final bool isDean;
 
-  User(
-      {this.firstName,
-      this.lastName,
-      this.prefix,
-      this.isArchived,
-      this.hasPassword,
-      this.isApplicationManager,
-      this.isStudent,
-      this.isEmployee,
-      this.isFamilyMember,
-      this.isSchoolScheduler,
-      this.isSchoolLeader,
-      this.isStudentAdministrator,
-      this.isTeamLeader,
-      this.isSectionLeader,
-      this.isMentor,
-      this.isDean});
+  User({
+    required this.firstName,
+    required this.lastName,
+    required this.prefix,
+    required this.isArchived,
+    required this.hasPassword,
+    required this.isApplicationManager,
+    required this.isStudent,
+    required this.isEmployee,
+    required this.isFamilyMember,
+    required this.isSchoolScheduler,
+    required this.isSchoolLeader,
+    required this.isStudentAdministrator,
+    required this.isTeamLeader,
+    required this.isSectionLeader,
+    required this.isMentor,
+    required this.isDean,
+  });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

@@ -6,7 +6,13 @@ class Announcement {
   final String title;
   final String text;
 
-  Announcement({this.id, this.start, this.end, this.title, this.text});
+  Announcement({
+    required this.id,
+    required this.start,
+    required this.end,
+    required this.title,
+    required this.text,
+  });
 
   factory Announcement.fromJson(Map<String, dynamic> json) {
     return Announcement(

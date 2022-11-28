@@ -1,12 +1,13 @@
-import 'package:zeta/zermelo/Announcement/Announcement.dart';
-import 'package:zeta/zermelo/Manager.dart';
-import 'package:http/http.dart' as http;
-import 'package:zeta/zermelo/Util.dart';
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:zermelo/Announcement/Announcement.dart';
+import 'package:zermelo/Manager.dart';
+import 'package:zermelo/Util.dart';
+
 class AnnouncementsManager extends ZermeloManager {
-  String school;
-  String accessToken;
+  late String school;
+  late String accessToken;
 
   get({user = "~me"}) async {
     final response = await http.get(ZermeloUtil.createApiURL(this.school,
@@ -22,7 +23,8 @@ class AnnouncementsManager extends ZermeloManager {
     }
   }
 
-  AnnouncementsManager(String school, String accesstoken) {
+  AnnouncementsManager(String school, String accesstoken)
+      : super(school: school, accessToken: accesstoken) {
     this.school = school;
     this.accessToken = accesstoken;
   }

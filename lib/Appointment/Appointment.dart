@@ -21,24 +21,25 @@ class Appointment implements Comparable {
 
   final dynamic isNew;
 
-  Appointment(
-      {this.id,
-      this.start,
-      this.end,
-      this.startTimeSlot,
-      this.endTimeSlot,
-      this.subjects,
-      this.teachers,
-      this.groups,
-      this.locations,
-      this.type,
-      this.remark,
-      this.valid,
-      this.cancelled,
-      this.modified,
-      this.moved,
-      this.isNew,
-      this.changeDescription});
+  Appointment({
+    required this.id,
+    required this.start,
+    required this.end,
+    required this.startTimeSlot,
+    required this.endTimeSlot,
+    required this.subjects,
+    required this.teachers,
+    required this.groups,
+    required this.locations,
+    required this.type,
+    required this.remark,
+    required this.valid,
+    required this.cancelled,
+    required this.modified,
+    required this.moved,
+    required this.isNew,
+    required this.changeDescription,
+  });
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
@@ -64,6 +65,6 @@ class Appointment implements Comparable {
 
   @override
   int compareTo(other) {
-    return start - other.start;
+    return (start - other.start).round();
   }
 }

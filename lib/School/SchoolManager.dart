@@ -1,12 +1,13 @@
-import 'package:zeta/zermelo/School/School.dart';
-import 'package:zeta/zermelo/Manager.dart';
-import 'package:http/http.dart' as http;
-import 'package:zeta/zermelo/Util.dart';
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:zermelo/Manager.dart';
+import 'package:zermelo/School/School.dart';
+import 'package:zermelo/Util.dart';
+
 class SchoolManager extends ZermeloManager {
-  String school;
-  String accessToken;
+  late String school;
+  late String accessToken;
 
   getAll() async {
     final response = await http.get(
@@ -21,7 +22,7 @@ class SchoolManager extends ZermeloManager {
     }
   }
 
-  get({String id}) async {
+  get({required String id}) async {
     final response = await http.get(
         ZermeloUtil.createApiURL(this.school, "schools/$id", this.accessToken));
     if (response.statusCode == 200) {
@@ -31,7 +32,8 @@ class SchoolManager extends ZermeloManager {
     }
   }
 
-  SchoolManager(String school, String accesstoken) {
+  SchoolManager(String school, String accesstoken)
+      : super(school: school, accessToken: accesstoken) {
     this.school = school;
     this.accessToken = accesstoken;
   }

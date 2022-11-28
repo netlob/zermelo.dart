@@ -1,12 +1,13 @@
-import 'package:zeta/zermelo/User/User.dart';
-import 'package:zeta/zermelo/Manager.dart';
-import 'package:http/http.dart' as http;
-import 'package:zeta/zermelo/Util.dart';
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:zermelo/Manager.dart';
+import 'package:zermelo/User/User.dart';
+import 'package:zermelo/Util.dart';
+
 class UserManager extends ZermeloManager {
-  String school;
-  String accessToken;
+  late String school;
+  late String accessToken;
 
   getAll() async {
     final response = await http
@@ -32,7 +33,8 @@ class UserManager extends ZermeloManager {
     }
   }
 
-  UserManager(String school, String accesstoken) {
+  UserManager(String school, String accesstoken)
+      : super(school: school, accessToken: accesstoken) {
     this.school = school;
     this.accessToken = accesstoken;
   }

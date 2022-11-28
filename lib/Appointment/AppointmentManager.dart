@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:zeta/zermelo/Appointment/Appointment.dart';
-import 'package:zeta/zermelo/Manager.dart';
-import 'package:http/http.dart' as http;
-import 'package:zeta/zermelo/Util.dart';
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:zermelo/Appointment/Appointment.dart';
+import 'package:zermelo/Manager.dart';
+import 'package:zermelo/Util.dart';
+
 class AppointmentManager extends ZermeloManager {
-  String school;
-  String accessToken;
+  late String school;
+  late String accessToken;
 
   Future<List> get(DateTime startDate, DateTime endDate, {user = "~me"}) async {
     final response = await http.get(ZermeloUtil.createApiURL(
@@ -46,7 +46,8 @@ class AppointmentManager extends ZermeloManager {
       throw Exception('Weeknumber must be between 1-52');
   }
 
-  AppointmentManager(String school, String accesstoken) {
+  AppointmentManager(String school, String accesstoken)
+      : super(school: school, accessToken: accesstoken) {
     this.school = school;
     this.accessToken = accesstoken;
   }
