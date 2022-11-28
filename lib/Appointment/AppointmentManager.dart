@@ -12,7 +12,7 @@ class AppointmentManager extends ZermeloManager {
   Future<List> get(DateTime startDate, DateTime endDate, {user = "~me"}) async {
     final response = await http.get(ZermeloUtil.createApiURL(
         this.school,
-        "appointments?user=$user&start=${(startDate.millisecondsSinceEpoch).round()}&end=${(endDate.millisecondsSinceEpoch).round()}",
+        "appointments?user=$user&start=${(startDate.millisecondsSinceEpoch / 1000).round()}&end=${(endDate.millisecondsSinceEpoch / 1000).round()}",
         this.accessToken));
     if (response.statusCode == 200) {
       return json

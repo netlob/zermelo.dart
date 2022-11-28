@@ -26,7 +26,7 @@ class UserManager extends ZermeloManager {
     final response = await http.get(
         ZermeloUtil.createApiURL(this.school, "users/$id", this.accessToken));
     if (response.statusCode == 200) {
-      return User.fromJson(json.decode(response.body));
+      return User.fromJson(json.decode(response.body)['response']['data'][0]);
     } else {
       print(response.body.toString());
       throw Exception('Failed to load user');

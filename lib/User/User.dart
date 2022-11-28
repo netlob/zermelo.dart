@@ -1,7 +1,7 @@
 class User {
   final String firstName;
   final String lastName;
-  final String prefix;
+  final String? prefix;
 
   final bool isArchived;
   final bool hasPassword;
